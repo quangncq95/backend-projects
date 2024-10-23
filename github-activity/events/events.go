@@ -19,7 +19,8 @@ type Event interface {
 }
 
 const (
-	PushEvent GitHubEventType = "PushEvent"
+	PushEvent   GitHubEventType = "PushEvent"
+	CreateEvent GitHubEventType = "CreateEvent"
 )
 
 func CreateEventFactory(res *GitHubEventResponse) Event {
@@ -34,6 +35,10 @@ func CreateEventFactory(res *GitHubEventResponse) Event {
 		}
 
 		return nil
+	case CreateEvent:
+		return &createEvent{
+			Event: res,
+		}
 	}
 
 	return nil
