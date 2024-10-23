@@ -22,6 +22,7 @@ const (
 	PushEvent        GitHubEventType = "PushEvent"
 	CreateEvent      GitHubEventType = "CreateEvent"
 	PullRequestEvent GitHubEventType = "PullRequestEvent"
+	WatchEvent       GitHubEventType = "WatchEvent"
 )
 
 func CreateEventFactory(res *GitHubEventResponse) Event {
@@ -47,6 +48,14 @@ func CreateEventFactory(res *GitHubEventResponse) Event {
 			Payload: &pullRequestEventPayload{
 				action: m["action"].(string),
 				number: m["number"].(float64),
+			},
+		}
+	case WatchEvent:
+		m := res.Payload.(map[string]interface{})
+		return &watchEvent{
+			Event: res,
+			Payload: &watchEventPayload{
+				action: m["action"].(string),
 			},
 		}
 	}
