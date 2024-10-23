@@ -19,8 +19,9 @@ type Event interface {
 }
 
 const (
-	PushEvent   GitHubEventType = "PushEvent"
-	CreateEvent GitHubEventType = "CreateEvent"
+	PushEvent        GitHubEventType = "PushEvent"
+	CreateEvent      GitHubEventType = "CreateEvent"
+	PullRequestEvent GitHubEventType = "PullRequestEvent"
 )
 
 func CreateEventFactory(res *GitHubEventResponse) Event {
@@ -38,6 +39,15 @@ func CreateEventFactory(res *GitHubEventResponse) Event {
 	case CreateEvent:
 		return &createEvent{
 			Event: res,
+		}
+	case PullRequestEvent:
+		m := res.Payload.(map[string]interface{})
+		return &pullRequestEvent{
+			Event: res,
+			Payload: &pullRequestEventPayload{
+				action: m["action"].(string),
+				number: m["number"].(float64),
+			},
 		}
 	}
 
