@@ -1,0 +1,21 @@
+{{define "temperature"}}
+<form action="/converter/temperature" method="post">
+    <label for="inputValue">Enter the temperature to convert</label>
+    <input type="text" id="inputValue" name="inputValue" required>
+  
+    <label for="fromUnit">Unit to convert from</label>
+    <select id="fromUnit" name="fromUnit">
+        <option value="c">celsius</option>
+        <option value="f">fahrenheit</option>
+        <option value="k">kelvin</option>
+      </select>
+  
+    <label for="toUnit">Unit to convert to</label>
+    <select id="toUnit" name="toUnit">
+      <option value="c">celsius</option>
+      <option value="f">fahrenheit</option>
+      <option value="k">kelvin</option>
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+{{end}}

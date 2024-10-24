@@ -1,0 +1,36 @@
+
+{{define "length"}}
+<form action="/converter/length" method="post">
+    <label for="inputValue">Enter the length to convert</label>
+    <input type="text" id="inputValue" name="inputValue" required>
+  
+    <label for="fromUnit">Unit to convert from</label>
+    <select id="fromUnit" name="fromUnit">
+        <option value="mm">millimeter</option>
+        <option value="cm">centimeter</option>
+        <option value="dm">decimeter</option>
+        <option value="m">meter</option>
+        <option value="km">kilometer</option>
+        <option value="in">inch</option>
+        <option value="ft">foot</option>
+        <option value="yds">yard</option>
+        <option value="mi">mile</option>
+  
+      </select>
+  
+    <label for="toUnit">Unit to convert to</label>
+    <select id="toUnit" name="toUnit">
+      <option value="mm">millimeter</option>
+      <option value="cm">centimeter</option>
+      <option value="dm">decimeter</option>
+      <option value="m">meter</option>
+      <option value="km">kilometer</option>
+      <option value="in">inch</option>
+      <option value="ft">foot</option>
+      <option value="yds">yard</option>
+      <option value="mi">mile</option>
+
+    </select>
+    <input type="submit" value="Submit">
+  </form>
+{{end}}

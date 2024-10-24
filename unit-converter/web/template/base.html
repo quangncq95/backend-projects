@@ -1,0 +1,39 @@
+
+
+{{define "base"}}
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/styles/main.css">
+<link rel="stylesheet" href="/static/styles/tabs.css">
+<link rel="stylesheet" href="/static/styles/input.css">
+
+</head>
+<body>
+
+<h2>Unit converter</h2>
+
+<div class="tab">
+  <button class="tablinks" onclick="openTab(event, 'Length')">Length</button>
+  <button class="tablinks" onclick="openTab(event, 'Weight')">Weight</button>
+  <button class="tablinks" onclick="openTab(event, 'Temperature')">Temperature</button>
+</div>
+
+<div id="Length" class="tabcontent">
+  {{template "length"}}
+</div>
+
+<div id="Weight" class="tabcontent">
+  {{template "weight"}}
+</div>
+
+<div id="Temperature" class="tabcontent">
+  {{template "temperature"}}
+</div>
+
+<script src="/static/js/tabs.js"></script>
+   
+</body>
+</html> 
+{{end}}
