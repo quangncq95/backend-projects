@@ -12,9 +12,7 @@ func Routes() http.Handler {
 
 	mux.Handle("/static/", http.StripPrefix("/static", fsHandler))
 	mux.HandleFunc("/{$}", handler.HomeHandlerGet)
-	mux.HandleFunc("POST /converter/length", handler.LengthHandlerPost)
-	mux.HandleFunc("POST /converter/weight", handler.WeightHandlerPost)
-	mux.HandleFunc("POST /converter/temperature", handler.TemperatureHandlerPost)
+	mux.HandleFunc("POST /result", handler.ConvertHandlerPost)
 
 	return mux
 }

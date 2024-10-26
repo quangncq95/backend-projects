@@ -1,7 +1,7 @@
 package converter
 
 // This table save ratio to convert  an unit to mm.
-var converterTable = map[string]float64{
+var lengthConverterTable = map[string]float64{
 	"mm":  1,
 	"cm":  10,
 	"dm":  100,
@@ -13,12 +13,8 @@ var converterTable = map[string]float64{
 	"mi":  1609344,
 }
 
-type LengthConverter struct {
-	ConverterName string
-}
-
-func (converter *LengthConverter) Convert(input *ConversionInput) *ConversionResult {
-	outValue := input.InputValue * converterTable[input.FromUnit] / converterTable[input.ToUnit]
+func convertLength(input *ConversionInput) *ConversionResult {
+	outValue := input.InputValue * lengthConverterTable[input.FromUnit] / lengthConverterTable[input.ToUnit]
 	return &ConversionResult{
 		Input:  input,
 		Output: outValue,

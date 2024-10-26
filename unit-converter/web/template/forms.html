@@ -7,8 +7,9 @@
   </div>
   
   <div id="Length" class="tabcontent">
-    <form action="/converter/length" method="post">
-        <label for="inputValue">Enter the length to convert</label>
+    <form action="/result" method="post">
+      <input type="hidden" id="type" name="type" value="length">
+      <label for="inputValue">Enter the length to convert</label>
         <input type="text" id="inputValue" name="inputValue" required>
       
         <label for="fromUnit">Unit to convert from</label>
@@ -43,7 +44,8 @@
   </div>
   
   <div id="Weight" class="tabcontent">
-    <form action="/converter/weight" method="post">
+    <form action="/result" method="post">
+        <input type="hidden" id="type" name="type" value="weight">
         <label for="inputValue">Enter the weight to convert</label>
         <input type="text" id="inputValue" name="inputValue" required>
       
@@ -69,7 +71,8 @@
   </div>
   
   <div id="Temperature" class="tabcontent">
-    <form action="/converter/temperature" method="post">
+    <form action="/result" method="post">
+        <input type="hidden" id="type" name="type" value="temperature">
         <label for="inputValue">Enter the temperature to convert</label>
         <input type="text" id="inputValue" name="inputValue" required>
       
