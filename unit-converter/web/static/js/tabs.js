@@ -11,3 +11,8 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+const tablinks = document.getElementsByClassName("tablinks");
+console.log("tablinks",tablinks)
+const firsTab = tablinks[0]
+firsTab.click()

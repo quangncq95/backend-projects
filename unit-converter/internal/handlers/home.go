@@ -7,7 +7,7 @@ import (
 )
 
 func HomeHandlerGet(res http.ResponseWriter, req *http.Request) {
-	ts, err := template.ParseFiles("../web/template/base.html", "../web/template/forms/length.html", "../web/template/forms/weight.html", "../web/template/forms/temperature.html")
+	ts, err := template.ParseFiles("../web/template/base.html", "../web/template/forms.html")
 
 	if err != nil {
 		log.Fatalf("Error : %v", err)
