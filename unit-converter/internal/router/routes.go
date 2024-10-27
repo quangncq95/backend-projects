@@ -5,14 +5,14 @@ import (
 	"net/http"
 )
 
-func Routes() http.Handler {
+func Routes(appHandler *handler.AppHandler) http.Handler {
 	mux := http.NewServeMux()
 
 	fsHandler := http.FileServer(http.Dir("../web/static"))
 
 	mux.Handle("/static/", http.StripPrefix("/static", fsHandler))
-	mux.HandleFunc("/{$}", handler.HomeHandlerGet)
-	mux.HandleFunc("POST /result", handler.ConvertHandlerPost)
+	mux.HandleFunc("/{$}", appHandler.HomeHandlerGet)
+	mux.HandleFunc("POST /result", appHandler.ConvertHandlerPost)
 
 	return mux
 }

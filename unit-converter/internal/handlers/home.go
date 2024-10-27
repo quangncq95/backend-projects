@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func HomeHandlerGet(res http.ResponseWriter, req *http.Request) {
+func (appHandler *AppHandler) HomeHandlerGet(res http.ResponseWriter, req *http.Request) {
 	ts, err := template.ParseFiles("../web/template/base.html", "../web/template/forms.html")
 
 	if err != nil {
