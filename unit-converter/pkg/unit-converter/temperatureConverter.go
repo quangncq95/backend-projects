@@ -4,6 +4,15 @@ import "fmt"
 
 // This table save ratio to convert  an unit to mm.
 var temperatureConverterTable = map[string]func(input float64) float64{
+	"c-c": func(input float64) float64 {
+		return input
+	},
+	"f-f": func(input float64) float64 {
+		return input
+	},
+	"k-k": func(input float64) float64 {
+		return input
+	},
 	"c-f": func(input float64) float64 {
 		return (input * float64(9) / float64(5)) + 32
 	},

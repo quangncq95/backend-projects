@@ -1,4 +1,5 @@
 function openTab(evt, tabName) {
+  console.log("Tabname",tabName)
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -13,6 +14,9 @@ function openTab(evt, tabName) {
 }
 
 const tablinks = document.getElementsByClassName("tablinks");
-console.log("tablinks",tablinks)
+for(const tabElement of tablinks){
+  const tabName = tabElement.dataset.tabName
+  tabElement.addEventListener("click",(event)=>{openTab(event,tabName)})
+}
 const firsTab = tablinks[0]
 firsTab.click()

@@ -16,6 +16,6 @@ func main() {
 	handler := handler.NewAppHandler(logger)
 	logger.Info("Server start at port 8000\n")
 
-	err := http.ListenAndServe(":8000", middleware.LogRequest(logger, router.Routes(handler)))
+	err := http.ListenAndServe(":8000", middleware.AddHeaders(middleware.LogRequest(logger, router.Routes(handler))))
 	log.Fatal("Error", err)
 }
