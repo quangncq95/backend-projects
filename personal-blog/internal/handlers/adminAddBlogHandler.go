@@ -5,8 +5,8 @@ import (
 	"text/template"
 )
 
-func (handler *Handler) HomeHandler(res http.ResponseWriter, req *http.Request) {
-	tmp, err := template.ParseFiles("../web/html/base.html", "../web/html/home.html")
+func (handler *Handler) AdminAddBlogHandlerGet(res http.ResponseWriter, req *http.Request) {
+	tmp, err := template.ParseFiles("../web/html/base.html", "../web/html/admin/addBlog.html")
 	if err != nil {
 		handler.app.ServerError(res, err)
 	}
