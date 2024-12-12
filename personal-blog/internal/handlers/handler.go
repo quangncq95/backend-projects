@@ -16,3 +16,10 @@ func NewHandler(logger *slog.Logger, app *app.Application) *Handler {
 		app: app,
 	}
 }
+
+type ResponseBody struct {
+	Data any `json:"data"`
+	Code int `json:"code"`
+	Message string `json:"message"`
+}
+
